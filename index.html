@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+<head>
+  <meta content='text/html;charset=UTF-8' http-equiv='content-type' />
+  <title>jQuery Form Toggle</title>
+
+  <link href="screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+  <script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+  <script src="jquery.form_toggle.js" type="text/javascript"></script>
+  
+  <script type="text/javascript" charset="utf-8">
+  $(document).ready(function() {    
+    $(document).form_toggle({speed: false});
+    $(document).form_toggle({prefix: 'slide_toggle'});
+  });
+  
+  </script>
+</head>
+<body>
+
+  <div id="container">
+    <div>
+      <select id="item_unit_type" class="toggle" name="item[unit_type]">
+        <option value="visible">You can see me</option>
+        <option value="hidden">I'm hidden</option>
+        <option value="hidden2">I'm hidden too</option>
+      </select>
+
+      <div class="visible">
+        You can see me.
+      </div>
+
+      <div class="hidden">
+        I was hidden.
+      </div>
+
+      <div class="hidden2">
+        I was hidden too.
+      </div>
+    </div>
+
+    <div>
+      <br /><br />
+      <input checked="checked" class="slide_toggle-was_checked" id="uncheck_me" name="uncheck_me" type="checkbox" value="1" />
+      <label for="uncheck_me">Show the area below</label>
+
+      <div class="was_checked">
+        Showing by default.
+      </div>
+      <br /><br />
+      <input class="slide_toggle-was_unchecked" id="check_me" name="check_me" type="checkbox" value="1" />
+      <label for="check_me">Show the area below</label>
+
+      <div class="was_unchecked">
+        Hidden by default.
+      </div>
+    </div>
+
+    <div>
+      <br /><br />
+      <input id="radio_one" name="radio" type="radio" value="radio_one" class="toggle" checked="checked">
+      <label for="radio_one">Show area one</label>
+      <input id="radio_two" name="radio" type="radio" value="radio_two" class="toggle">
+      <label for="radio_two">Show area two</label>
+      <input id="radio_three" name="radio" type="radio" value="radio_three" class="toggle">
+      <label for="radio_three">Show area three</label>
+
+      <div class="radio_one">
+        You have radio one selected.
+      </div>
+      <div class="radio_two">
+        You have radio two selected.
+      </div>
+      <div class="radio_three">
+        You have radio three selected.
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
