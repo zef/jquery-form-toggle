@@ -11,16 +11,16 @@
   
   <script type="text/javascript" charset="utf-8">
   $(document).ready(function() {    
-    $(document).form_toggle({speed: false});
-    $(document).form_toggle({prefix: 'slide_toggle'});
+    $(document).form_toggle();
+    $(document).form_toggle({prefix: 'opposite', reverse: true});
   });
   
   </script>
 </head>
 <body>
-
   <div id="container">
     <div>
+      <h1>Default Settings</h1>
       <select id="item_unit_type" class="toggle" name="item[unit_type]">
         <option value="visible">You can see me</option>
         <option value="hidden">I'm hidden</option>
@@ -42,14 +42,14 @@
 
     <div>
       <br /><br />
-      <input checked="checked" class="slide_toggle-was_checked dummy_class" id="uncheck_me" name="uncheck_me" type="checkbox" value="1" />
+      <input checked="checked" class="toggle-was_checked dummy_class" id="uncheck_me" name="uncheck_me" type="checkbox" value="1" />
       <label for="uncheck_me">Show the area below</label>
 
       <div class="was_checked">
         Showing by default.
       </div>
       <br /><br />
-      <input class="dummy_class slide_toggle-was_unchecked" id="check_me" name="check_me" type="checkbox" value="1" />
+      <input class="dummy_class toggle-was_unchecked" id="check_me" name="check_me" type="checkbox" value="1" />
       <label for="check_me">Show the area below</label>
 
       <div class="was_unchecked">
@@ -73,6 +73,64 @@
         You have radio two selected.
       </div>
       <div class="radio_three">
+        You have radio three selected.
+      </div>
+    </div>
+
+    <div>
+      <h1>Opposite land</h1>
+      <select id="item_unit_type" class="opposite" name="item[unit_type]">
+        <option value="opposite_visible">You can see me</option>
+        <option value="opposite_hidden">I'm hidden</option>
+        <option value="opposite_hidden2">I'm hidden too</option>
+      </select>
+
+      <div class="opposite_visible">
+        You can see me.
+      </div>
+
+      <div class="opposite_hidden">
+        I was hidden.
+      </div>
+
+      <div class="opposite_hidden2">
+        I was hidden too.
+      </div>
+    </div>
+
+    <div>
+      <br /><br />
+      <input checked="checked" class="opposite-opposite_was_checked" id="opposite_uncheck_me" name="uncheck_me" type="checkbox" value="1" />
+      <label for="opposite_uncheck_me">Show the area below</label>
+
+      <div class="opposite_was_checked">
+        Showing by default.
+      </div>
+      <br /><br />
+      <input class="opposite-opposite_was_unchecked" id="opposite_check_me" name="check_me" type="checkbox" value="1" />
+      <label for="opposite_check_me">Show the area below</label>
+
+      <div class="opposite_was_unchecked">
+        Hidden by default.
+      </div>
+    </div>
+
+    <div>
+      <br /><br />
+      <input id="opposite_radio_one" name="opposite_radio" type="radio" value="opposite_radio_one" class="opposite" checked="checked">
+      <label for="opposite_radio_one">Show area one</label>
+      <input id="opposite_radio_two" name="opposite_radio" type="radio" value="opposite_radio_two" class="opposite">
+      <label for="opposite_radio_two">Show area two</label>
+      <input id="opposite_radio_three" name="opposite_radio" type="radio" value="opposite_radio_three" class="opposite">
+      <label for="opposite_radio_three">Show area three</label>
+
+      <div class="opposite_radio_one">
+        You have radio one selected.
+      </div>
+      <div class="opposite_radio_two">
+        You have radio two selected.
+      </div>
+      <div class="opposite_radio_three">
         You have radio three selected.
       </div>
     </div>

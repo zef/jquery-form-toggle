@@ -1,12 +1,16 @@
 jQuery(function($) {
-
   $.fn.form_toggle = function(options) {
     var settings = $.extend({
       prefix        : 'toggle',
       reverse       : false,
+      // You can pass aruments to show and hide here.
+      // Useful for sending callbacks if you need to do anything besides showing and hiding.
       checkbox      : 'normal',
       radio         : null,
       select        : null,
+      // These are called when the page is loaded.
+      // You pobably don't want to have a visual effect here
+      // But you might need the callback
       checkbox_init : null,
       radio_init    : null,
       select_init   : null
@@ -46,7 +50,6 @@ jQuery(function($) {
       });
 
       $.each(classes, function(index) {
-
         var element = $(this.replace(settings.prefix + '-', '.'));
         functions.handle_checked_state(checkbox, element, settings.checkbox_init);
 
@@ -54,13 +57,11 @@ jQuery(function($) {
           functions.handle_checked_state(this, element, settings.checkbox);
         });
       });
-      
     });
 
-    elements.filter(':radio').each(function(index) {
-      var element;
 
-      element = $('.' + $(this).val());
+    elements.filter(':radio').each(function(index) {
+      var element = $('.' + $(this).val());
       functions.handle_checked_state(this, element, settings.radio_init);
 
       $(this).change(function() {
@@ -70,7 +71,6 @@ jQuery(function($) {
           element = $('.' + $(this).val());
           functions.handle_checked_state(this, element, settings.radio);
         });
-
       });
     });
 
@@ -80,8 +80,6 @@ jQuery(function($) {
       $(this).change(function() {
         functions.handle_select(this, settings.select);
       });
-
     });
   };
-
 });
