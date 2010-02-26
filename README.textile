@@ -3,15 +3,16 @@ h1. jQuery Form Toggle
 A jQuery plugin that makes it easy to show and hide elements based on the state of a checkbox, radio button, or select menu.
 
 h2. Basic usage
+
 <pre><code>
   $(document).ready(function() {    
     $(document).form_toggle();
   });  
 </code></pre>
 
-Use the class <pre>toggle</pre> class on any radio button, or select element and elements with a class corresponding to the button or select value will be hidden and shown with the selection of a value.
+Use the class 'toggle' class on any radio button, or select element and elements with a class corresponding to the button or select value will be hidden and shown with the selection of a value.
 
-For checkboxes, the class <pre>toggle-some_class</pre> would tie the checkbox to elements with class <pre>some_class</pre>.
+For checkboxes, the class 'toggle-some_class' would tie the checkbox to elements with class 'some_class'.
 
 h2. Options
 
@@ -26,6 +27,6 @@ There are a few ways in which you can configure form_toggle. You can define a cu
   });  
 </code></pre>
 
-This will use the <pre>opposite</pre> class, and the effect will be reversed.
+This will use the 'opposite' class, and the effect will be reversed.
 
 You can also define custom arguments to be passed to jQuery's show() and hide() methods. This can be used to control the speed of animation and to define callbacks if you need to do anything else at the same time.
