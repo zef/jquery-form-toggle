@@ -9,8 +9,8 @@ jQuery(function($) {
       radio         : null,
       select        : null,
       // These are called when the page is loaded.
-      // You pobably don't want to have a visual effect here
-      // But you might need the callback
+      // You pobably don't want to have a visual effect here,
+      // but you might need the callback.
       checkbox_init : null,
       radio_init    : null,
       select_init   : null
