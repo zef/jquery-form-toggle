@@ -5,7 +5,7 @@ jQuery(function($) {
       reverse       : false,
       // You can pass aruments to show and hide here.
       // Useful for sending callbacks if you need to do anything besides showing and hiding.
-      checkbox      : 'normal',
+      checkbox      : 400,
       radio         : null,
       select        : null,
       // These are called when the page is loaded.
@@ -39,7 +39,6 @@ jQuery(function($) {
       // settings.command(element);
     };
     var elements = $('[class*=' + settings.prefix + ']');
-
 
     elements.filter(':checkbox').each(function(index) {
       checkbox = $(this);
