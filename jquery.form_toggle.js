@@ -3,13 +3,13 @@ jQuery(function($) {
     var settings = $.extend({
       prefix        : 'toggle',
       reverse       : false,
-      // You can pass aruments to show and hide here.
+      // You can pass arguments to show and hide here.
       // Useful for sending callbacks if you need to do anything besides showing and hiding.
       checkbox      : 400,
       radio         : null,
       select        : null,
       // These are called when the page is loaded.
-      // You pobably don't want to have a visual effect here,
+      // You probably don't want to have a visual effect here,
       // but you might need the callback.
       checkbox_init : null,
       radio_init    : null,

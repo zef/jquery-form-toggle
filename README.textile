@@ -2,6 +2,8 @@ h1. jQuery Form Toggle
 
 A jQuery plugin that makes it easy to show and hide elements based on the state of a checkbox, radio button, or select menu.
 
+You can also pass callbacks and custom options when you setup the form_toggle. See the code for details.
+
 h2. Basic usage
 
 <pre><code>
