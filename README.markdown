@@ -24,6 +24,7 @@ Form Toggle uses HTML data attributes to drive the configuration of the forms. T
 
 2. Check boxes and radio buttons can also simply use explicit jQuery selectors to define what elements they are targeting. Use `data-toggle=".your-selector"` to do this.
 
+Form values are processed through a parameterize function through which 'Some Value' would become 'some-value'. You can provide your own function for this if you need.
 
 Options
 -------

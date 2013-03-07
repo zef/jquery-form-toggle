@@ -11,7 +11,10 @@
         select: null,
         checkboxInit: null,
         radioInit: null,
-        selectInit: null
+        selectInit: null,
+        parameterize: function(string) {
+          return $.trim(string).toLowerCase().replace(/\W/g, '-');
+        }
       }, options);
       methods = {
         showOrHideTarget: function(selected, target, args) {
@@ -31,6 +34,7 @@
           selectorSuffix = controller.data("" + settings.dataAttribute + "-suffix");
           if (selector == null) {
             value || (value = controller.val());
+            value = settings.parameterize(value);
             selector = selectorPrefix + value;
             if (selectorSuffix != null) {
               selector += selectorSuffix;

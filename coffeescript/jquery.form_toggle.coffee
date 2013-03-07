@@ -16,6 +16,11 @@ jQuery ($) ->
       checkboxInit: null
       radioInit: null
       selectInit: null
+
+      # used to process the value to create a selector
+      parameterize: (string) ->
+        $.trim(string).toLowerCase().replace(/\W/g, '-')
+
     , options
 
     methods =
@@ -32,6 +37,7 @@ jQuery ($) ->
 
         unless selector?
           value ||= controller.val()
+          value = settings.parameterize(value)
           selector = selectorPrefix + value
           selector += selectorSuffix if selectorSuffix?
 
