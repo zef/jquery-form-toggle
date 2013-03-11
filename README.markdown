@@ -34,7 +34,7 @@ There are a few ways in which you can configure formToggle. You can define a cus
 ```javascript
 $(document).ready(function() {
   $(document).formToggle({
-    prefix: 'reverse-toggle',
+    dataAttribute: 'reverse-toggle',
     reverse: true
   });
 });
