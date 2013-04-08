@@ -2,7 +2,7 @@
 
   jQuery(function($) {
     return $.fn.formToggle = function(options) {
-      var elements, methods, settings;
+      var element_selector, methods, settings;
       settings = $.extend({
         dataAttribute: "toggle",
         reverse: false,
@@ -57,39 +57,41 @@
           });
         }
       };
-      elements = $("[data-" + settings.dataAttribute + "], [data-" + settings.dataAttribute + "-prefix]");
-      elements.filter(':checkbox').each(function(index) {
-        var controller, target;
-        controller = $(this);
-        target = methods.targetForController(controller);
-        methods.handleCheckedState(controller, target, settings.checkboxInit);
-        return $(controller).on('change', function(event) {
-          return methods.handleCheckedState(controller, target, settings.checkbox);
-        });
+      element_selector = "[data-" + settings.dataAttribute + "], [data-" + settings.dataAttribute + "-prefix]";
+      $(element_selector).each(function(index, controller) {
+        var setting, target;
+        controller = $(controller);
+        if (controller.is('select')) {
+          return methods.handleSelect(controller, settings.selectInit);
+        } else {
+          target = methods.targetForController(controller);
+          if (controller.is(':checkbox')) {
+            setting = settings.checkboxInit;
+          }
+          if (controller.is(':radio')) {
+            setting = settings.radioInit;
+          }
+          return methods.handleCheckedState(controller, target, setting);
+        }
       });
-      elements.filter(":radio").each(function(index) {
-        var controller, target;
+      return $(document).on('change', element_selector, function(event) {
+        var controller, group, target;
         controller = $(this);
-        target = methods.targetForController(controller);
-        methods.handleCheckedState(controller, target, settings.radioInit);
-        return $(controller).on('change', function(event) {
-          var group;
+        if (controller.is('select')) {
+          methods.handleSelect(controller, settings.select);
+        }
+        if (controller.is(':checkbox')) {
+          target = methods.targetForController(controller);
+          methods.handleCheckedState(controller, target, settings.checkbox);
+        }
+        if (controller.is(':radio')) {
           group = controller.attr("name");
-          return $(":radio[name=" + group + "]").each(function(index) {
-            var radio;
-            radio = $(this);
+          return $(":radio[name=" + group + "]").each(function(index, radio) {
+            radio = $(radio);
             target = methods.targetForController(radio);
             return methods.handleCheckedState(radio, target, settings.radio);
           });
-        });
-      });
-      return elements.filter("select").each(function(index) {
-        var select;
-        select = $(this);
-        methods.handleSelect(select, settings.selectInit);
-        return select.on('change', function(event) {
-          return methods.handleSelect(select, settings.select);
-        });
+        }
       });
     };
   });

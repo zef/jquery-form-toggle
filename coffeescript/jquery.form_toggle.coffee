@@ -56,35 +56,36 @@ jQuery ($) ->
           methods.showOrHideTarget selected, target, args
 
 
-    elements = $("[data-#{settings.dataAttribute}], [data-#{settings.dataAttribute}-prefix]")
+    element_selector = "[data-#{settings.dataAttribute}], [data-#{settings.dataAttribute}-prefix]"
 
-    elements.filter(':checkbox').each (index) ->
+    # set initial state
+    $(element_selector).each (index, controller) ->
+      controller = $(controller)
+      if controller.is('select')
+        methods.handleSelect controller, settings.selectInit
+      else
+        target  = methods.targetForController(controller)
+        setting = settings.checkboxInit if controller.is(':checkbox')
+        setting = settings.radioInit    if controller.is(':radio')
+        methods.handleCheckedState controller, target, setting
+
+
+    $(document).on 'change', element_selector, (event) ->
       controller = $(this)
-      target = methods.targetForController(controller)
 
-      methods.handleCheckedState controller, target, settings.checkboxInit
+      if controller.is('select')
+        methods.handleSelect controller, settings.select
 
-      $(controller).on 'change', (event) ->
+      if controller.is(':checkbox')
+        target = methods.targetForController(controller)
         methods.handleCheckedState controller, target, settings.checkbox
 
-
-    elements.filter(":radio").each (index) ->
-      controller = $(this)
-      target = methods.targetForController(controller)
-
-      methods.handleCheckedState controller, target, settings.radioInit
-
-      $(controller).on 'change', (event) ->
+      if controller.is(':radio')
         group = controller.attr("name")
-        $(":radio[name=#{group}]").each (index) ->
-          radio  = $(this)
+        $(":radio[name=#{group}]").each (index, radio) ->
+          radio = $(radio)
           target = methods.targetForController(radio)
           methods.handleCheckedState radio, target, settings.radio
 
 
-    elements.filter("select").each (index) ->
-      select = $(this)
-      methods.handleSelect select, settings.selectInit
-      select.on 'change', (event) ->
-        methods.handleSelect select, settings.select
 
