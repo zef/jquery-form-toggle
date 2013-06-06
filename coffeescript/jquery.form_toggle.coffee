@@ -82,7 +82,7 @@ jQuery ($) ->
 
       if controller.is(':radio')
         group = controller.attr("name")
-        $(":radio[name=#{group}]").each (index, radio) ->
+        $(":radio[name='#{group}']").each (index, radio) ->
           radio = $(radio)
           target = methods.targetForController(radio)
           methods.handleCheckedState radio, target, settings.radio

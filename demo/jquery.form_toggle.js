@@ -86,7 +86,7 @@
         }
         if (controller.is(':radio')) {
           group = controller.attr("name");
-          return $(":radio[name=" + group + "]").each(function(index, radio) {
+          return $(":radio[name='" + group + "']").each(function(index, radio) {
             radio = $(radio);
             target = methods.targetForController(radio);
             return methods.handleCheckedState(radio, target, settings.radio);
