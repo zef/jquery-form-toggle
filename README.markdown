@@ -3,7 +3,7 @@ jQuery Form Toggle
 
 A jQuery plugin that makes it easy to show and hide elements based on the state of a checkbox, radio button, or select menu.
 
-You can also pass callbacks and custom options when you initialize the plugin. See [the code](https://github.com/zef/jquery_form_toggle/blob/master/coffeescript/jquery.form_toggle.coffee) for details.
+You can also pass callbacks and custom options when you initialize the plugin. See [the code](https://github.com/zef/jquery-form-toggle/blob/master/coffeescript/jquery.form-toggle.coffee) for details.
 
 Although basic functionality like this is easy to write, it can quickly get complex in certain situations. This plugin properly sets up the initial page state based on a form that has already been filled out.
 

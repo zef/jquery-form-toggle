@@ -5,5 +5,5 @@ guard 'livereload' do
   watch(%r{.+\.(css|js|html)})
 end
 
-guard 'coffeescript', input: 'coffeescript', output: 'demo'
+guard 'coffeescript', input: 'coffeescript', output: './'
 

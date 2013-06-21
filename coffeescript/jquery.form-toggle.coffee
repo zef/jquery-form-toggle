@@ -87,5 +87,3 @@ jQuery ($) ->
           target = methods.targetForController(radio)
           methods.handleCheckedState radio, target, settings.radio
 
-
-
